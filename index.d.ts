@@ -85,7 +85,7 @@ export interface TableObject<A> extends TableQuery<A> {
   removeAll(xs: Array<string|OldRecord>): Observable<CreatedObject>;
   replace(oneOrList: OldRecord|OldRecord[]): Observable<CreatedObject>;
   store(oneOrList: NewRecord|OldRecord|(NewRecord|OldRecord)[]): Observable<CreatedObject>;
-  update(oneOrList: OldRecord|OldRecord[]): TableQuery<CreatedObject>;
+  update(oneOrList: OldRecord|OldRecord[]): Observable<CreatedObject|CreatedObject[]>;
   upsert(oneOrList: NewRecord|OldRecord|(NewRecord|OldRecord)[]): TableQuery<CreatedObject>;
 }
 export interface AggregateObject {

@@ -77,16 +77,18 @@ export interface NewRecord {
 export interface OldRecord extends NewRecord {
   id: string;
 }
+type idOrOldRecord<A> = string|(A&OldRecord);
+type oneOrList<A> = A|Array<A>;
 export interface TableObject<A> extends TableQuery<A> {
-  find(x: string|NewRecord): FindQuery<A>;
-  findAll(x: string|NewRecord, ...xs: Array<string|NewRecord>): TableQuery<A>;
-  insert(oneOrList: NewRecord|NewRecord[]): TableObject<CreatedObject>;
-  remove(x: string|OldRecord): TableObject<CreatedObject>;
-  removeAll(xs: Array<string|OldRecord>): Observable<CreatedObject>;
-  replace(oneOrList: OldRecord|OldRecord[]): Observable<CreatedObject>;
-  store(oneOrList: NewRecord|OldRecord|(NewRecord|OldRecord)[]): Observable<CreatedObject>;
-  update(oneOrList: OldRecord|OldRecord[]): Observable<CreatedObject|CreatedObject[]>;
-  upsert(oneOrList: NewRecord|OldRecord|(NewRecord|OldRecord)[]): TableQuery<CreatedObject>;
+  find(x: string|A): FindQuery<A>;
+  findAll(x: string|A, ...xs: Array<string|A>): TableQuery<A>;
+  insert(oneOrList: A|A[]): TableObject<CreatedObject>;
+  remove(x: idOrOldRecord<A>): TableObject<string>;
+  removeAll(xs: Array<idOrOldRecord<A>>): Observable<string>;
+  replace(oneOrList: oneOrList<A&OldRecord>): Observable<A>;
+  store(oneOrList: oneOrList<A>): Observable<{id:string}>;
+  update(oneOrList: oneOrList<A&OldRecord>): Observable<oneOrList<A>>;
+  upsert(oneOrList: oneOrList<A>): TableQuery<A>;
 }
 export interface AggregateObject {
   [key: string]: FindQuery<NewRecord>|DataType|Observable<NewRecord>|Promise<NewRecord>|AggregateObject[]

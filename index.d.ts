@@ -36,7 +36,7 @@ export interface HorizonConstructor {
 export let Horizon: HorizonConstructor;
 
 export type AuthType  = 'unauthenticated' | 'anonymous' | 'token';
-export type AuthToken = {token: any, storeLocally: boolean};
+export type AuthToken = { token: any, storeLocally: boolean };
 export type OrderType = 'ascending' | 'descending';
 export type RangeType = 'closed' | 'open';
 
@@ -86,7 +86,7 @@ export interface TableObject<A> extends TableQuery<A> {
   remove(x: idOrOldRecord<A>): TableObject<string>;
   removeAll(xs: Array<idOrOldRecord<A>>): Observable<string>;
   replace(oneOrList: oneOrList<A&OldRecord>): Observable<A>;
-  store(oneOrList: oneOrList<A>): Observable<{id:string}>;
+  store(oneOrList: oneOrList<A>): Observable<{ id: string }>;
   update(oneOrList: oneOrList<A&OldRecord>): Observable<oneOrList<A>>;
   upsert(oneOrList: oneOrList<A>): TableQuery<A>;
 }

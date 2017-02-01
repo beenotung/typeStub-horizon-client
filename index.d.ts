@@ -84,7 +84,7 @@ export interface TableObject<A> extends TableQuery<A> {
   findAll(x: string|A, ...xs: Array<string|A>): TableQuery<A>;
   insert(oneOrList: A|A[]): TableObject<CreatedObject>;
   remove(x: idOrOldRecord<A>): TableObject<string>;
-  removeAll(xs: Array<idOrOldRecord<A>>): Observable<string>;
+  removeAll(xs: Array<idOrOldRecord<A>>): Observable<{ id: string }>;
   replace(oneOrList: oneOrList<A&OldRecord>): Observable<A>;
   store(oneOrList: oneOrList<A>): Observable<{ id: string }>;
   update(oneOrList: oneOrList<A&OldRecord>): Observable<oneOrList<A>>;

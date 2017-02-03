@@ -82,8 +82,8 @@ type oneOrList<A> = A|Array<A>;
 export interface TableObject<A> extends TableQuery<A> {
   find(x: string|A): FindQuery<A>;
   findAll(x: string|A, ...xs: Array<string|A>): TableQuery<A>;
-  insert(oneOrList: A|A[]): TableObject<CreatedObject>;
-  remove(x: idOrOldRecord<A>): TableObject<string>;
+  insert(oneOrList: A|A[]): Observable<CreatedObject>;
+  remove(x: idOrOldRecord<A>): Observable<string>;
   removeAll(xs: Array<idOrOldRecord<A>>): Observable<{ id: string }>;
   replace(oneOrList: oneOrList<A&OldRecord>): Observable<A>;
   store(oneOrList: oneOrList<A>): Observable<{ id: string }>;

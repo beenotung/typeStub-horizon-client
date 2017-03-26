@@ -36,7 +36,6 @@ export interface HorizonConstructor {
   clearAuthToken(): void;
 }
 export let Horizon: HorizonConstructor;
-export type HorizonFunc = (param?: HorizonConstructorParam) => Horizon;
 
 export type AuthType = 'unauthenticated' | 'anonymous' | 'token';
 export type AuthToken = { token: any, storeLocally: boolean };

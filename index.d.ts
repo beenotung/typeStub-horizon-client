@@ -61,6 +61,7 @@ export interface OrderQuery<A> extends FinalQuery<A> {
 }
 export interface FindQuery<A> {
   fetch(): SingleFinalQuery<A>;
+  watch(): Observable<A>;
 }
 export interface CreatedObject {
   id: string;

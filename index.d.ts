@@ -6,6 +6,7 @@ export interface Horizon {
 
   find<A>(): Observable<A>;
 
+  /**@deprecated*/
   call<A>(_this: Horizon, table: string): TableObject<A>;
 
   <A> (name: string): TableObject<A>;
@@ -23,6 +24,8 @@ export interface Horizon {
   onSocketError(f: (error: any) => void): void;
 
   model<A>(query: (id: string) => AggregateObject): (id: string) => FinalQuery<A>;
+
+  aggregate<A>(query: { [key: string]: DataType | FinalQuery<OldRecord> }): FinalQuery<A>;
 }
 export interface HorizonConstructorParam {
   host?: string;        // default to window.location
@@ -44,7 +47,7 @@ export type RangeType = 'closed' | 'open';
 
 export interface TableQuery<A> extends FinalQuery<A> {
   order(field: string, direction?: OrderType): OrderQuery<A>;     // default to "ascending"
-  above(idOrObject: string | any, type?: RangeType): OrderQuery<A>; // default to "open" (exclusive)
+  above(idOrObject: string | { [key: string]: DataType }, type?: RangeType): OrderQuery<A>; // default to "open" (exclusive)
 }
 export interface FinalQuery<A> extends LimitedFinalQuery<A> {
   limit(max: number): LimitedFinalQuery<A>;

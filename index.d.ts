@@ -60,7 +60,7 @@ export interface LimitedFinalQuery<A> {
   watch(): Observable<A[]>;
 }
 export interface OrderQuery<A> extends FinalQuery<A> {
-  below(idOrObject: string | any, type?: string): FinalQuery<A[]>; // default open(exclusive)
+  below(idOrObject: string | DataType, type?: RangeType): FinalQuery<A[]>; // default open(exclusive)
 }
 export interface FindQuery<A> {
   fetch(): SingleFinalQuery<A>;

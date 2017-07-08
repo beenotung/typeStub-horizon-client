@@ -1,0 +1,25 @@
+{
+  "name": "typestub-horizon-client",
+  "version": "1.0.0",
+  "description": "source: https://github.com/beenotung/typed-horizon",
+  "main": "index.js",
+  "scripts": {
+    "test": "tslint --type-check --project tsconfig.json index.d.ts"
+  },
+  "keywords": [
+    "horizon",
+    "typedef",
+    "typestub"
+  ],
+  "author": "Beeno Tung",
+  "license": "ISC",
+  "devDependencies": {
+    "codelyzer": "^3.1.2",
+    "tslint": "^5.5.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^2.4.1"
+  },
+  "dependencies": {
+    "rxjs": "^5.4.2"
+  }
+}

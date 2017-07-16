@@ -14,10 +14,13 @@
   "author": "Beeno Tung",
   "license": "ISC",
   "devDependencies": {
+    "@angular/compiler": "^4.3.0",
+    "@angular/core": "^4.3.0",
     "codelyzer": "^3.1.2",
     "tslint": "^5.5.0",
     "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.1",
+    "zone.js": "^0.8.13"
   },
   "dependencies": {
     "rxjs": "^5.4.2"

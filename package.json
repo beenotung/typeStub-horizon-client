@@ -24,5 +24,8 @@
   },
   "dependencies": {
     "rxjs": "^5.4.2"
+  },
+  "peerDependencies": {
+    "rxjs": "^5.4.2"
   }
 }

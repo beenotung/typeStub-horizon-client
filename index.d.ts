@@ -1,6 +1,6 @@
 // Source: https://raw.githubusercontent.com/beenotung/typed-horizon/master/src/main.d.ts
 
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 
 export interface Horizon {
   (param?: HorizonConstructorParam): Horizon;

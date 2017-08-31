@@ -1,6 +1,6 @@
 {
   "name": "typestub-horizon-client",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "source: https://github.com/beenotung/typed-horizon",
   "main": "index.js",
   "scripts": {

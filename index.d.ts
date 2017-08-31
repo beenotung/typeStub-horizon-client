@@ -26,7 +26,7 @@ export interface Horizon {
 
   model<A>(query: (id: string) => AggregateObject): (id: string) => FinalQuery<A>;
 
-  aggregate<A>(query: { [key: string]: DataType | FinalQuery<OldRecord> }): FinalQuery<A>;
+  aggregate<A>(query: { [key: string]: DataType | FinalQuery<OldRecord> | FindQuery<A> }): FinalQuery<A>;
 }
 
 export interface HorizonConstructorParam {
@@ -122,7 +122,7 @@ export interface TableObject<A> extends TableQuery<A> {
 
   update(oneOrList: oneOrList<A & OldRecord>): Observable<oneOrList<A>>;
 
-  upsert(oneOrList: oneOrList<A>): TableQuery<A>;
+  upsert(oneOrList: oneOrList<A>): Observable<oneOrList<A>>;
 }
 
 export interface AggregateObject {

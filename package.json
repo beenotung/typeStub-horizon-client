@@ -4,7 +4,10 @@
   "description": "source: https://github.com/beenotung/typed-horizon",
   "main": "index.js",
   "scripts": {
-    "test": "tslint --type-check --project tsconfig.json index.d.ts"
+    "lint": "npm-run-all lint:*",
+    "lint:tsc": "tslint --type-check --project tsconfig.json index.d.ts",
+    "lint:ionic": "ionic-app-scripts lint",
+    "test": "npm run lint"
   },
   "keywords": [
     "horizon",
@@ -12,19 +15,30 @@
     "typestub"
   ],
   "author": "Beeno Tung",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "dependencies": {},
   "devDependencies": {
-    "@angular/compiler": "4.1.3",
-    "@angular/core": "4.1.3",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/tsc-wrapped": "^4.0.0",
+    "@ionic/app-scripts": "^2.1.4",
+    "ajv": "^5.0.0",
     "codelyzer": "^3.1.2",
-    "rxjs": "5.4.0",
-    "tslint": "^5.5.0",
+    "npm-run-all": "^4.1.1",
+    "rxjs": "^5.4.0",
+    "tslint": "^5.7.0",
     "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.4.1",
-    "zone.js": "^0.8.13"
+    "typescript": "^2.5.2",
+    "zone.js": "^0.8.17"
   },
-  "peerDependencies": {
-    "rxjs": "5.4.0"
-  }
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beenotung/typestub-horizon-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/beenotung/typestub-horizon-client/issues"
+  },
+  "homepage": "https://github.com/beenotung/typestub-horizon-client#readme"
 }

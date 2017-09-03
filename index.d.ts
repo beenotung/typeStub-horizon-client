@@ -1,6 +1,6 @@
 // Source: https://raw.githubusercontent.com/beenotung/typed-horizon/master/src/main.d.ts
 
-import {Observable} from 'rxjs/Observable';
+import {Observable} from "rxjs/Observable";
 
 export interface Horizon {
   (param?: HorizonConstructorParam): Horizon;
@@ -45,10 +45,10 @@ export interface HorizonConstructor {
 
 export let Horizon: HorizonConstructor;
 
-export type AuthType = 'unauthenticated' | 'anonymous' | 'token';
+export type AuthType = "unauthenticated" | "anonymous" | "token";
 export type AuthToken = { token: any, storeLocally: boolean };
-export type OrderType = 'ascending' | 'descending';
-export type RangeType = 'closed' | 'open';
+export type OrderType = "ascending" | "descending";
+export type RangeType = "closed" | "open";
 
 export interface LimitedFinalQuery<A> {
   fetch(): Observable<A[]>;

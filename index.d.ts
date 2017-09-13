@@ -5,8 +5,6 @@ import {Observable} from "rxjs/Observable";
 export interface Horizon {
   (param?: HorizonConstructorParam): Horizon;
 
-  find<A>(): Observable<A>;
-
   /**@deprecated*/
   call<A>(_this: Horizon, table: string): TableObject<A>;
 

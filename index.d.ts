@@ -16,6 +16,8 @@ export interface Horizon {
 
   connect(): void;
 
+  status(): Observable<{ type: 'ready' | 'disconnected' | 'error' }>;
+
   onReady(f: Function): void;
 
   onDisconnected(f: Function): void;

@@ -2,6 +2,14 @@
 
 import {Observable} from "rxjs/Observable";
 
+export type HorizonStatus =
+  "unconnected"
+  | "connected"
+  | "ready"
+  | "error"
+  | "disconnected"
+  ;
+
 export interface Horizon {
   (param?: HorizonConstructorParam): Horizon;
 
@@ -16,7 +24,7 @@ export interface Horizon {
 
   connect(): void;
 
-  status(): Observable<{ type: "ready" | "disconnected" | "error" }>;
+  status(): Observable<{ type: HorizonStatus }>;
 
   onReady(f: Function): void;
 

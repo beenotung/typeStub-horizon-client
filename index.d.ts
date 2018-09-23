@@ -8,7 +8,7 @@ export interface Horizon {
   /**@deprecated*/
   call<A>(_this: Horizon, table: string): TableObject<A>;
 
-  <A> (name: string): TableObject<A>;
+  <A>(name: string): TableObject<A>;
 
   currentUser(): TableQuery<any>;
 

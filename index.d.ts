@@ -2,14 +2,6 @@
 
 import {Observable} from "rxjs/Observable";
 
-export type HorizonStatus =
-  "unconnected"
-  | "connected"
-  | "ready"
-  | "error"
-  | "disconnected"
-  ;
-
 export interface Horizon {
   (param?: HorizonConstructorParam): Horizon;
 
@@ -53,6 +45,7 @@ export interface HorizonConstructor {
 
 export let Horizon: HorizonConstructor;
 
+export type HorizonStatus = "unconnected" | "connected" | "ready" | "error" | "disconnected" ;
 export type AuthType = "unauthenticated" | "anonymous" | "token";
 export type AuthToken = { token: any, storeLocally: boolean };
 export type OrderType = "ascending" | "descending";

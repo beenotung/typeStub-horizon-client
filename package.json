@@ -4,9 +4,8 @@
   "description": "source: https://github.com/beenotung/typed-horizon",
   "main": "index.js",
   "scripts": {
-    "lint": "npm-run-all lint:*",
-    "lint:tsc": "tslint --type-check --project tsconfig.json -c tslint.json index.d.ts",
-    "lint:ionic": "ionic-app-scripts lint",
+    "fix": "tslint -p . --fix index.d.ts",
+    "lint": "tslint --project tsconfig.json -c tslint.json index.d.ts",
     "test": "npm run lint"
   },
   "keywords": [
@@ -18,19 +17,10 @@
   "license": "BSD-3-Clause",
   "dependencies": {},
   "devDependencies": {
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/tsc-wrapped": "^4.0.0",
-    "@ionic/app-scripts": "^2.1.4",
-    "ajv": "^5.0.0",
-    "codelyzer": "^3.1.2",
-    "npm-run-all": "^4.1.1",
     "rxjs": "^5.4.0",
-    "tslint": "^5.7.0",
-    "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.5.2",
-    "zone.js": "^0.8.4"
+    "tslint": "^5.11.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^2.5.2"
   },
   "peerDependencies": {},
   "repository": {

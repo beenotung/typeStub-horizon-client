@@ -14,6 +14,9 @@ export interface Horizon {
 
   hasAuthToken(): boolean;
 
+  /* return endpoint url `(window.location.replace(endpoint)) */
+  authEndpoint(endpoint: AuthEndpoint): Observable<string>;
+
   connect(): void;
 
   status(): Observable<{ type: HorizonStatus }>;
@@ -50,6 +53,10 @@ export type AuthType = "unauthenticated" | "anonymous" | "token";
 export type AuthToken = { token: any, storeLocally: boolean };
 export type OrderType = "ascending" | "descending";
 export type RangeType = "closed" | "open";
+export type AuthEndpoint = "facebook" | "github" | "google" | "slack" | "twitch" | "twitter" | "auth0";
+
+/* for client hint */
+export type RedirectQueryParameter = "horizon_token" | "error";
 
 export interface LimitedFinalQuery<A> {
   fetch(): Observable<A[]>;

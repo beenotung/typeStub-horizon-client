@@ -15,7 +15,9 @@
   ],
   "author": "Beeno Tung",
   "license": "BSD-3-Clause",
-  "dependencies": {},
+  "dependencies": {
+    "@horizon/client": "^2.0.0"
+  },
   "devDependencies": {
     "rxjs": "^5.4.0",
     "tslint": "^5.11.0",

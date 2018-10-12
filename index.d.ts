@@ -33,11 +33,16 @@ export interface Horizon {
 }
 
 export interface HorizonConstructorParam {
-  host?: string;        // default to window.location
-  secure?: boolean;     // default to true
-  path?: string;        // default to "horizon"
-  lazyWrites?: boolean; // default to false
-  authType?: AuthType;  // default to "unauthenticated"
+  /* default to window.location */
+  host?: string;
+  /* default to true */
+  secure?: boolean;
+  /* default to "horizon" */
+  path?: string;
+  /* default to false */
+  lazyWrites?: boolean;
+  /* default to "unauthenticated" */
+  authType?: AuthType;
 }
 
 export interface HorizonConstructor {
@@ -76,7 +81,9 @@ export interface FinalQuery<A> extends LimitedFinalQuery<A> {
 }
 
 export interface TableQuery<A> extends FinalQuery<A> {
-  order(field: string, direction?: OrderType): OrderQuery<A>;     // default to "ascending"
+  /* default to "ascending" */
+  order(field: string, direction?: OrderType): OrderQuery<A>;
+
   above(idOrObject: string | { [key: string]: DataType }, type?: RangeType): OrderQuery<A>; // default to "open" (exclusive)
 }
 
@@ -85,7 +92,8 @@ export interface SingleFinalQuery<A> extends Observable<A> {
 }
 
 export interface OrderQuery<A> extends FinalQuery<A> {
-  below(idOrObject: string | DataType, type?: RangeType): FinalQuery<A[]>; // default open(exclusive)
+  /* default open(exclusive) */
+  below(idOrObject: string | DataType, type?: RangeType): FinalQuery<A[]>;
 }
 
 export interface FindQuery<A> {

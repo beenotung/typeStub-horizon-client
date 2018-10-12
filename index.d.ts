@@ -59,11 +59,6 @@ export type AuthToken = { token: any, storeLocally: boolean };
 export type OrderType = "ascending" | "descending";
 export type RangeType = "closed" | "open";
 export type AuthEndpoint = "facebook" | "github" | "google" | "slack" | "twitch" | "twitter" | "auth0";
-export type RawChange<A> =
-  { type: "state", state: "synced" }
-  | { type: "add", new_val: A, old_val: null }
-  | { type: "change", new_val: A, old_val: A }
-  ;
 
 /* for client hint */
 export type RedirectQueryParameter = "horizon_token" | "error";
@@ -109,6 +104,18 @@ export interface FindQuery<A> {
 export interface CreatedObject {
   id: string;
 }
+
+export interface VersionedObject extends CreatedObject {
+  "$hz_v$": number;
+}
+
+export type RawChange<A> =
+  { type: "state", state: "synced" }
+  | { type: "initial", new_val: A & VersionedObject }
+  | { type: "add", new_val: A & VersionedObject, old_val: null }
+  | { type: "remove", old_val: A & VersionedObject, new_val: null }
+  | { type: "change", new_val: A & VersionedObject, old_val: A & VersionedObject }
+  ;
 
 export interface JSONObject {
   [key: string]: DataType | JSONObject | Array<DataType>;

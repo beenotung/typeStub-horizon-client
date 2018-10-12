@@ -54,6 +54,11 @@ export type AuthToken = { token: any, storeLocally: boolean };
 export type OrderType = "ascending" | "descending";
 export type RangeType = "closed" | "open";
 export type AuthEndpoint = "facebook" | "github" | "google" | "slack" | "twitch" | "twitter" | "auth0";
+export type RawChange<A> =
+  { type: "state", state: "synced" }
+  | { type: "add", new_val: A, old_val: null }
+  | { type: "change", new_val: A, old_val: A }
+  ;
 
 /* for client hint */
 export type RedirectQueryParameter = "horizon_token" | "error";
@@ -61,7 +66,9 @@ export type RedirectQueryParameter = "horizon_token" | "error";
 export interface LimitedFinalQuery<A> {
   fetch(): Observable<A[]>;
 
-  watch(): Observable<A[]>;
+  watch(options?: { rawChanges: false }): Observable<A[]>
+
+  watch(options: { rawChanges: true }): Observable<RawChange<A>>
 }
 
 export interface FinalQuery<A> extends LimitedFinalQuery<A> {
@@ -85,6 +92,10 @@ export interface FindQuery<A> {
   fetch(): SingleFinalQuery<A>;
 
   watch(): Observable<A>;
+
+  watch(options: { rawChanges: false }): Observable<A[]>
+
+  watch(options: { rawChanges: true }): Observable<RawChange<A>>
 }
 
 export interface CreatedObject {
